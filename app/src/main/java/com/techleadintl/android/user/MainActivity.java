@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etName, email_txt, age_txt, note_txt;
+    private EditText etName, etEmail, age_txt, note_txt;
     Button add;
     String name, email, age, note;
     RecyclerView rv;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         models = myApplication.getModelsList();
 
         etName = findViewById(R.id.name);
-        email_txt = findViewById(R.id.email);
+        etEmail = findViewById(R.id.email);
         age_txt = findViewById(R.id.Age);
         note_txt = findViewById(R.id.note);
         add = findViewById(R.id.add_btn);
@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //create president objects
 
-                validateEmailAddress(email_txt);
+                validateEmailAddress(etEmail);
 
 
-                String email = email_txt.getText().toString();
+                String email = etEmail.getText().toString();
                 String name = etName.getText().toString();
                 String note = note_txt.getText().toString();
                 String age = age_txt.getText().toString();
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 int nextId = myApplication.getNextId();
 
                 if (TextUtils.isEmpty(email)) {
-                    email_txt.setError("required email");
+                    etEmail.setError("required email");
                     return;
                 }
                 if (TextUtils.isEmpty(name)) {
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                model newmodel = new model(nextId, etName.getText().toString(), email_txt.getText().toString(), age_txt.getText().toString(), note_txt.getText().toString());
+                model newmodel = new model(nextId, etName.getText().toString(), etEmail.getText().toString(), age_txt.getText().toString(), note_txt.getText().toString());
 
                 //add the object to the global list of model
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             private void clearData() {
                 etName.setText("");
-                email_txt.setText("");
+                etEmail.setText("");
                 age_txt.setText("");
                 note_txt.setText("");
             }
