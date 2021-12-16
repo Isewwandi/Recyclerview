@@ -16,18 +16,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText name_txt,email_txt,age_txt,note_txt;
+    private EditText etName, email_txt, age_txt, note_txt;
     Button add;
-    String name,email,age,note;
+    String name, email, age, note;
     RecyclerView rv;
-MyApplication myApplication= (MyApplication) this.getApplication();
-
+    MyApplication myApplication = (MyApplication) this.getApplication();
     List<model> models;
-
     MyAdapter adapter;
 
 
-//    private RecyclerView.MyAdapter adapter;
+    //    private RecyclerView.MyAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -35,20 +33,14 @@ MyApplication myApplication= (MyApplication) this.getApplication();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         models = myApplication.getModelsList();
 
-
-
-        name_txt = findViewById(R.id.name);
+        etName = findViewById(R.id.name);
         email_txt = findViewById(R.id.email);
         age_txt = findViewById(R.id.Age);
         note_txt = findViewById(R.id.note);
         add = findViewById(R.id.add_btn);
         rv = findViewById(R.id.rv);
-
-
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -60,33 +52,32 @@ MyApplication myApplication= (MyApplication) this.getApplication();
 
 
                 String email = email_txt.getText().toString();
-                String name = name_txt.getText().toString();
+                String name = etName.getText().toString();
                 String note = note_txt.getText().toString();
                 String age = age_txt.getText().toString();
 
 
                 int nextId = myApplication.getNextId();
 
-                if (TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     email_txt.setError("required email");
                     return;
                 }
-                if (TextUtils.isEmpty(name)){
-                    name_txt.setError("required name");
+                if (TextUtils.isEmpty(name)) {
+                    etName.setError("required name");
                     return;
                 }
-                if (TextUtils.isEmpty(note)){
+                if (TextUtils.isEmpty(note)) {
                     note_txt.setError("required note");
                     return;
                 }
-                if (TextUtils.isEmpty(age)){
+                if (TextUtils.isEmpty(age)) {
                     age_txt.setError("required age");
                     return;
                 }
 
 
-
-                model newmodel = new model(nextId,name_txt.getText().toString(),email_txt.getText().toString(),age_txt.getText().toString(),note_txt.getText().toString());
+                model newmodel = new model(nextId, etName.getText().toString(), email_txt.getText().toString(), age_txt.getText().toString(), note_txt.getText().toString());
 
                 //add the object to the global list of model
 
@@ -99,19 +90,19 @@ MyApplication myApplication= (MyApplication) this.getApplication();
             }
 
             private void clearData() {
-                name_txt.setText("");
+                etName.setText("");
                 email_txt.setText("");
                 age_txt.setText("");
                 note_txt.setText("");
             }
 
             private boolean validateEmailAddress(EditText email_txt) {
-                
+
                 String emailInput = email_txt.getText().toString();
-                
-                if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
+
+                if (!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
                     return true;
-                }else
+                } else
                     Toast.makeText(getApplicationContext(), "Invalid email", Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -128,5 +119,5 @@ MyApplication myApplication= (MyApplication) this.getApplication();
         rv.setAdapter(adapter);
 
     }
-    }
+}
 
