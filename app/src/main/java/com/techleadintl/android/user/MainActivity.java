@@ -16,17 +16,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etName, etEmail, age_txt, note_txt;
-    Button add;
-    String name, email, age, note;
-    RecyclerView rv;
+    private EditText metName, mEtEmail, mEtAge, mEtNote;
+    Button btnAdd, btnEdit;
+    RecyclerView mrv;
     MyApplication myApplication = (MyApplication) this.getApplication();
-    List<model> models;
-    MyAdapter adapter;
-
-
-    //    private RecyclerView.MyAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+    List<Model> models;
+    MyAdapter madapter;
+    private RecyclerView.LayoutManager mlayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,71 +31,78 @@ public class MainActivity extends AppCompatActivity {
 
         models = myApplication.getModelsList();
 
-        etName = findViewById(R.id.name);
-        etEmail = findViewById(R.id.email);
-        age_txt = findViewById(R.id.Age);
-        note_txt = findViewById(R.id.note);
-        add = findViewById(R.id.add_btn);
-        rv = findViewById(R.id.rv);
+        metName = findViewById(R.id.name);
+        mEtEmail = findViewById(R.id.email);
+        mEtAge = findViewById(R.id.Age);
+        mEtNote = findViewById(R.id.note);
+        btnAdd = findViewById(R.id.add_btn);
+        mrv = findViewById(R.id.rv);
+        btnEdit =findViewById(R.id.edit_btn);
 
-
-        add.setOnClickListener(new View.OnClickListener() {
+    btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //create president objects
 
-                validateEmailAddress(etEmail);
+                validateEmailAddress(mEtEmail);
 
-
-                String email = etEmail.getText().toString();
-                String name = etName.getText().toString();
-                String note = note_txt.getText().toString();
-                String age = age_txt.getText().toString();
-
+                String email = mEtEmail.getText().toString();
+                String name = metName.getText().toString();
+                String note = mEtNote.getText().toString();
+                String age = mEtAge.getText().toString();
 
                 int nextId = myApplication.getNextId();
 
                 if (TextUtils.isEmpty(email)) {
-                    etEmail.setError("required email");
+                    mEtEmail.setError("required email");
                     return;
                 }
                 if (TextUtils.isEmpty(name)) {
-                    etName.setError("required name");
+                    metName.setError("required name");
                     return;
                 }
                 if (TextUtils.isEmpty(note)) {
-                    note_txt.setError("required note");
+                    mEtNote.setError("required note");
                     return;
                 }
                 if (TextUtils.isEmpty(age)) {
-                    age_txt.setError("required age");
+                    mEtAge.setError("required age");
                     return;
                 }
 
-
-                model newmodel = new model(nextId, etName.getText().toString(), etEmail.getText().toString(), age_txt.getText().toString(), note_txt.getText().toString());
+                Model newmodel = new Model(nextId, metName.getText().toString(), mEtEmail.getText().toString(), mEtAge.getText().toString(), mEtNote.getText().toString());
 
                 //add the object to the global list of model
-
                 models.add(newmodel);
                 myApplication.setNextId(nextId++);
                 Toast.makeText(getApplicationContext(), "data added", Toast.LENGTH_SHORT).show();
 
                 clearData();
-                //goback
+                //Edit data
+                editData();
+            }
+
+            private void editData() {
+
+                if(getIntent().getBundleExtra("userdata")!=null){
+                    Bundle bundle = getIntent().getBundleExtra("userdata");
+                    metName.setText(bundle.getString("Name"));
+                    mEtEmail.setText(bundle.getString("Email"));
+                    mEtAge.setText(bundle.getString("Age"));
+                    mEtNote.setText(bundle.getString("Note"));
+                    btnEdit.setVisibility(View.VISIBLE);
+                }
             }
 
             private void clearData() {
-                etName.setText("");
-                etEmail.setText("");
-                age_txt.setText("");
-                note_txt.setText("");
+                metName.setText("");
+                mEtEmail.setText("");
+                mEtAge.setText("");
+                mEtNote.setText("");
             }
 
             private boolean validateEmailAddress(EditText email_txt) {
-
                 String emailInput = email_txt.getText().toString();
-
                 if (!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
                     return true;
                 } else
@@ -110,14 +113,25 @@ public class MainActivity extends AppCompatActivity {
 
         //Recyclerview
 
-        rv.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        rv.setLayoutManager(layoutManager);
+        mrv.setHasFixedSize(true);
+        mlayoutManager = new LinearLayoutManager(this);
+        mrv.setLayoutManager(mlayoutManager);
 
         //adapter
-        adapter = new MyAdapter(models, MainActivity.this);
-        rv.setAdapter(adapter);
+        madapter = new MyAdapter(models, MainActivity.this);
+        mrv.setAdapter(madapter);
 
+        madapter.setOnItemClickListener(new MyAdapter.OnItemClickListner() {
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
+            private void removeItem(int position) {
+                    models.remove(position);
+                    madapter.notifyItemRemoved(position);
+
+            }
+        });
     }
 }
 

@@ -1,30 +1,19 @@
 package com.techleadintl.android.user;
 
-public class model {
+public class Model {
 
-    private int id;
-   private String name;
-   private String email;
-   private String age;
-   private String note;
+     int id;
+     String name;
+     String email;
+     String age;
+     String note;
 
-    public model(int id, String name, String email, String age, String note) {
+    public Model(int id, String name, String email, String age, String note) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
         this.note = note;
-    }
-
-    @Override
-    public String toString() {
-        return "model{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age='" + age + '\'' +
-                ", note='" + note + '\'' +
-                '}';
     }
 
     public int getId() {
