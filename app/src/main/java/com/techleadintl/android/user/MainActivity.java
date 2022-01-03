@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         models = myApplication.getModelsList();
-
         metName = findViewById(R.id.name);
         mEtEmail = findViewById(R.id.email);
         mEtAge = findViewById(R.id.Age);
@@ -42,17 +41,15 @@ public class MainActivity extends AppCompatActivity {
     btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //create president objects
-
                 validateEmailAddress(mEtEmail);
-
                 String email = mEtEmail.getText().toString();
                 String name = metName.getText().toString();
                 String note = mEtNote.getText().toString();
                 String age = mEtAge.getText().toString();
 
                 int nextId = myApplication.getNextId();
-
                 if (TextUtils.isEmpty(email)) {
                     mEtEmail.setError("required email");
                     return;
@@ -71,19 +68,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Model newmodel = new Model(nextId, metName.getText().toString(), mEtEmail.getText().toString(), mEtAge.getText().toString(), mEtNote.getText().toString());
-
                 //add the object to the global list of model
                 models.add(newmodel);
                 myApplication.setNextId(nextId++);
                 Toast.makeText(getApplicationContext(), "data added", Toast.LENGTH_SHORT).show();
-
                 clearData();
                 //Edit data
                 editData();
             }
 
             private void editData() {
-
                 if(getIntent().getBundleExtra("userdata")!=null){
                     Bundle bundle = getIntent().getBundleExtra("userdata");
                     metName.setText(bundle.getString("Name"));
@@ -93,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     btnEdit.setVisibility(View.VISIBLE);
                 }
             }
-
             private void clearData() {
                 metName.setText("");
                 mEtEmail.setText("");
@@ -120,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         //adapter
         madapter = new MyAdapter(models, MainActivity.this);
         mrv.setAdapter(madapter);
-
         madapter.setOnItemClickListener(new MyAdapter.OnItemClickListner() {
             @Override
             public void onDeleteClick(int position) {

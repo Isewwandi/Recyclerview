@@ -43,14 +43,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_user,parent,false);
         MyViewHolder holder = new MyViewHolder(view);
-
-
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-
 
         holder.memail.setText(models.get(position).getEmail());
         holder.mname.setText(models.get(position).getName());
@@ -62,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Dialog dialog = new Dialog(mcontext);
             dialog.setContentView(R.layout.display_user);
             Button btnOk;
-             EditText etName, etEmail, age_txt, note_txt;
+            EditText etName, etEmail, age_txt, note_txt;
             etName = dialog.findViewById(R.id.edit_name);
             etEmail = dialog.findViewById(R.id.edit_email);
             age_txt = dialog.findViewById(R.id.edit_age);
@@ -77,14 +74,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     String email = etEmail.getText().toString();
                     String name = etName.getText().toString();
                     String note = note_txt.getText().toString();
                     String age = age_txt.getText().toString();
                     int id = 0;
-
                     if (TextUtils.isEmpty(email)) {
                         etEmail.setError("required email");
                         return;
@@ -101,7 +95,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                         age_txt.setError("required age");
                         return;
                     }
-
                 models.set(position,new Model(id,name,email,age,note));
                     notifyItemChanged(position);
 
@@ -150,8 +143,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             btEdit = itemView.findViewById(R.id.edit_btn);
             btDel = itemView.findViewById(R.id.del_btn);
             parentLayout =itemView.findViewById(R.id.layout);
-
-
             btDel.setOnClickListener(v -> {
                 if (mListener != null) {
                     int position = getAdapterPosition();
@@ -160,8 +151,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     }
                 }
             });
-
-
         }
     }
 }
