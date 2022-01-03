@@ -17,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,14 +56,12 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_large_plus" />
 
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
                 <EditText
                     android:id="@+id/edit_name"
@@ -76,15 +73,12 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_large_plus" />
 
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
                 <EditText
                     android:id="@+id/edit_age"
@@ -97,15 +91,12 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_large_plus" />
 
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
                 <EditText
                     android:id="@+id/edit_note"
@@ -117,9 +108,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_large_plus" />
 
-
             </LinearLayout>
-
 
             <Button
                 android:id="@+id/ok"
@@ -133,10 +122,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
