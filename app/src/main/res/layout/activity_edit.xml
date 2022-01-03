@@ -31,7 +31,7 @@ tools:context=".EditActivity">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/height"
                 android:layout_gravity="center"
                 android:src="@drawable/girl"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +42,10 @@ tools:context=".EditActivity">
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="31dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="68dp"
+                android:layout_width="@dimen/width_small"
+                android:layout_height="@dimen/height_small"
+                android:layout_marginStart="@dimen/extra_large"
+                android:layout_marginTop="@dimen/margin_max_large"
                 android:src="@drawable/ic_green_circle_svgrepo_com"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

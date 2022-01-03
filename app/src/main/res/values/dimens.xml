@@ -82,4 +82,8 @@
     <dimen name="material_text_menu">14sp</dimen>
     <dimen name="material_text_caption">12sp</dimen>
     <dimen name="margin_130">130dp</dimen>
+    <dimen name="extra_large">200dp</dimen>
+    <dimen name="height">100dp</dimen>
+    <dimen name="width_small">30dp</dimen>
+    <dimen name="height_small">30dp</dimen>
 </resources>
