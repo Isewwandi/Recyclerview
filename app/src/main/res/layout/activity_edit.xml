@@ -20,7 +20,8 @@ tools:context=".EditActivity">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_medium"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
@@ -75,7 +76,7 @@ tools:context=".EditActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin_130"
+                android:layout_marginStart="@dimen/margin_130"
                 android:backgroundTint="@color/pink_A400"
                 android:gravity="center"
                 android:text="@string/buttonProfile"
@@ -107,7 +108,7 @@ tools:context=".EditActivity">
                 android:layout_width="42dp"
                 android:layout_height="57dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin_medium_plus"
+                android:layout_marginStart="@dimen/margin_medium_plus"
                 android:layout_marginTop="@dimen/margin_small"
                 android:src="@drawable/ic_profile" />
 
@@ -121,7 +122,8 @@ tools:context=".EditActivity">
                 android:layout_marginStart="@dimen/margin_extra_large"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_large_plus" />
+                android:textSize="@dimen/text_large_plus"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
         <LinearLayout
@@ -134,7 +136,7 @@ tools:context=".EditActivity">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
-                android:layout_marginLeft="@dimen/margin_medium_plus"
+                android:layout_marginStart="@dimen/margin_medium_plus"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_email" />
 
@@ -148,7 +150,8 @@ tools:context=".EditActivity">
                 android:layout_marginStart="@dimen/margin_extra_large"
                 android:layout_gravity="center"
                 android:fontFamily="@font/adamina"
-                android:text="@string/email" />
+                android:text="@string/email"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
 
@@ -162,7 +165,7 @@ tools:context=".EditActivity">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
-                android:layout_marginLeft="@dimen/margin_medium_plus"
+                android:layout_marginStart="@dimen/margin_medium_plus"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_age"  />
 
@@ -176,7 +179,8 @@ tools:context=".EditActivity">
                 android:textSize="@dimen/text_large_plus"
                 android:layout_gravity="center"
                 android:fontFamily="@font/adamina"
-                android:text="@string/age" />
+                android:text="@string/age"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
 
@@ -190,7 +194,7 @@ tools:context=".EditActivity">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
-                android:layout_marginLeft="@dimen/margin_medium_plus"
+                android:layout_marginStart="@dimen/margin_medium_plus"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_note" />
 
@@ -204,7 +208,8 @@ tools:context=".EditActivity">
                 android:textSize="@dimen/text_large_plus"
                 android:layout_gravity="center"
                 android:fontFamily="@font/adamina"
-                android:text="@string/note" />
+                android:text="@string/note"
+                tools:ignore="RtlHardcoded" />
 
         </LinearLayout>
 

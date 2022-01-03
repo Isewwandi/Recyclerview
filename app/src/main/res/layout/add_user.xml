@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/layout"
-    >
+    android:id="@+id/layout">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -41,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Email:"
+                    android:text="@string/email2"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -65,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Name:"
+                    android:text="@string/name2"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -88,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Age:"
+                    android:text="@string/age2"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -112,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Note:"
+                    android:text="@string/note2"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -138,16 +136,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Edit" />
+                    android:text="@string/edit2" />
 
                 <Button
                     android:id="@+id/del_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/red_A700"
-                    android:text="Delete" />
+                    android:text="@string/delete" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

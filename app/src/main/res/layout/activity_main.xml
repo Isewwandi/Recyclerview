@@ -37,7 +37,8 @@
                         android:background="@drawable/txtfield"
                         android:hint="@string/Email"
                         android:textAlignment="center"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        tools:ignore="TextFields" />
 
                     <EditText
                         android:id="@+id/name"
